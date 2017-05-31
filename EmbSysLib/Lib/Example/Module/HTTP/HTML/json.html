@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+    <title>Ajax & JSON</title>
+
+    <script type="text/javascript">
+
+      window.setInterval(anfordern, 100);
+
+      function anfordern()
+      {
+         req = new XMLHttpRequest();
+         req.open("get", "json_request.html?num3="+document.getElementById("idEingabe").value, true);
+         req.onreadystatechange = auswerten;
+         req.send();
+      }
+
+      function auswerten(e)
+      {
+         if(e.target.readyState == 4 && e.target.status == 200)
+         {
+            var antwort = JSON.parse(e.target.responseText);
+            
+            document.getElementById("idText").firstChild.nodeValue =
+                "Zaehler: " + antwort.zaehler + ", Messwert: "  + antwort.messwert;
+
+            document.getElementById("idMesswert").value = antwort.messwert;
+         }
+      }
+
+    </script>
+  </head>
+
+  <body>
+    <p><input id="idEingabe" type="range" min="0"   max="100" step="1" value="$VAR(num3)"></p>
+    <p><meter id="idMesswert"             min="0.0" max="1.0"          value="0"         ></p>
+    <p id="idText">&nbsp;</p>
+    <p><a href="verweis.html">Index</a></p>
+  </body>
+</html>

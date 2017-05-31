@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+   
+   <title>Checkbox im Formular</title>
+   
+</head>
+<body>
+
+<form >
+   <p><input name="opt1" type="checkbox" value="0" checked hidden>
+      <input name="opt1" type="checkbox" value="1" $CHK(opt1,1)> Option 1</p>
+
+   <p><input name="opt2" type="checkbox" value="off" checked hidden>
+      <input name="opt2" type="checkbox" value="on"  $CHK(opt2,on)> Option 2</p>
+
+   <p>Radio:
+      <input type="radio" name="sel1" value="0" $CHK(sel1,0)>No
+      <input type="radio" name="sel1" value="1" $CHK(sel1,1)>Yes
+    </p>
+
+    <p>Select:
+      <select name="sel2" size="1">
+        <option value="A" $SEL(sel2,A)>Select A</option>
+        <option value="B" $SEL(sel2,B)>Select B</option>
+        <option value="C" $SEL(sel2,C)>Select C</option>
+      </select>
+    </p>
+<p>Number 1: <input type="number" name="num1" min="0" max="100" step="1" value="$VAR(num1)"></p>
+<p>Number 2: <input type="range"  name="num2" min="0" max="100" step="1" value="$VAR(num2)"></p>
+
+<p><button >send</button>
+
+</form>
+
+    <p>
+      <a href="verweis.html">Index</a>
+    </p>
+
+
+</body>
+</html>

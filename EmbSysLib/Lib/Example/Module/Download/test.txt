@@ -1,0 +1,70 @@
+//-------------------------------------------------------------------
+//
+//-------------------------------------------------------------------
+const BYTE cHwUSBdesc_0::descriptor[] = 
+{
+    // DEVICE
+    //-------
+    18,	// bLength
+    1,	// bDescriptorType
+    (0x0200)&0xFF,(0x0200)>>8,	// bcdUSB
+    0x00,	// bDeviceClass
+    0x00,	// bDeviceSubClass
+    0x00,	// bDeviceProtocol
+    (64),	// bMaxPacketSize0
+    (0x0023)&0xFF,(0x0023)>>8,	// idVendor
+    (0x8000)&0xFF,(0x8000)>>8,	// idProduct
+    (0x0100)&0xFF,(0x0100)>>8,	// bcdDevice
+    0,	// iManufacturer
+    1,	// iProduct
+    2,	// iSerialNumber
+    1,	// bNumConfigurations
+
+    // CONFIGURATION
+    //--------------
+    9,	// bLength
+    2,	// bDescriptorType
+    0x20,	// wTotalLength
+    0x00,	               
+    1,	// bNumInterfaces
+    1,	// bConfigurationValue
+    3,	// iConfiguration
+    0x80,	// bmAttributes
+    50,	// bMaxPower
+
+    // INTERFACE
+    //----------
+    9,	// bLength
+    4,	// bDescriptorType
+    0,	// bInterfaceNumber
+    0,	// bAlternateSetting
+    2,	// bNumEndpoints
+    (VENDOR_SPECIFIC_CLASS),	// bInterfaceClass
+    (0),	// bInterfaceSubClass
+    (0),	// bInterfaceProtocol
+    4,	// iInterface
+
+    // ENDPOINT
+    //---------
+    7,	// bLength
+    5,	// bDescriptorType
+    0x81,	// bEndpointAddress
+    (INTERRUPT_ENDPOINT),	// bmAttributes
+    (64)&0xFF,(64)>>8,	// wMaxPacketSize
+    (10),	// bInterval
+
+    // ENDPOINT
+    //---------
+    7,	// bLength
+    5,	// bDescriptorType
+    0x01,	// bEndpointAddress
+    (INTERRUPT_ENDPOINT),	// bmAttributes
+    (64)&0xFF,(64)>>8,	// wMaxPacketSize
+    (10),	// bInterval
+
+    0    // Dummy
+};
+
+
+
+//EOF

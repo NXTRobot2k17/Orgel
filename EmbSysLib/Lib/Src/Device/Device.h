@@ -1,0 +1,52 @@
+//*******************************************************************
+/*!
+\file   Device.h
+\author Thomas Breuer (Bonn-Rhein-Sieg University of Applied Sciences)
+\date   23.03.2016
+
+This file is released under the MIT License.
+
+\brief Device header files
+*/
+
+//*******************************************************************
+// Device/Analog
+//*******************************************************************
+#include "Analog/devAnalogInADC.h"
+#include "Analog/devAnalogOutDAC.h"
+#include "Analog/devAnalogOutPWM.h"
+
+//*******************************************************************
+// Device/Digital
+//*******************************************************************
+#include "Digital/devDigital.h"
+#include "Digital/devDigitalIndicator.h"
+
+//*******************************************************************
+// Device/Display
+//*******************************************************************
+#include "Display/devDisplay.h"
+#include "Display/devDisplayChar.h"
+#include "Display/devDisplayGraphic.h"
+
+//*******************************************************************
+// DEVICE/MEMORY
+//*******************************************************************
+#include "Memory/devMemory.h"
+#include "Memory/devMemoryFlash.h"
+
+//*******************************************************************
+// Device/TextIO
+//*******************************************************************
+#include "TextIO/devTextIO_UART.h"
+
+//*******************************************************************
+// Device/Control
+//*******************************************************************
+#include "Control/devControlEncoder.h"
+#include "Control/devControlEncoderJoystick.h"
+#include "Control/devControlEncoderRotaryKnob.h"
+#include "Control/devControlPointer.h"
+
+
+//EOF

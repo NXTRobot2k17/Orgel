@@ -1,0 +1,44 @@
+ver-1.13:
+=========
+- Virtual: cHWUART_MCU new
+- Tools: TerminalServer new
+
+ver-1.12:
+=========
+- Method cSystem::run() skipped
+- Classes added: 
+    cDevDigitalIndicator, 
+    cDevControlPointer,
+    cHwI2Cmaster_Emul,
+    cI2Cslave
+- New device support: ARM LPC11U35
+- Virtual: new hardware devices
+- Hardware/Peripheral: new devices
+- New modules: Command, LUA (draft), USB-CDC, USB-HID
+- Bugfixes
+
+
+ver-1.11:
+=========
+- cCommand new
+- Virtual: RTOS, RTC and Memory new
+- Bugfix in HTTP and Net
+
+ver-1.10:
+=========
+- cHwDisplay and cHwDisp_DIP204spi added
+- Device/Display and Device/Memory added
+- cDevAnalogIn::calibrate() added
+- cDownload added
+- cDevControlEncoder added
+- cNet and cEthernet added
+- new Controller: LPC17xx
+- new Peripheral
+- HTTP added
+- IPC added
+- minor bugs fixed
+
+
+ver-1.00:
+=========
+initial version

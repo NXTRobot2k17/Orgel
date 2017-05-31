@@ -1,0 +1,195 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<script type="text/javascript">
+
+</script>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Memory</title>
+<style type="text/css">
+   body, td {font-family:Verdana; font-size:14pt; color:#b22222;
+             text-align:center; vertical-align:middle}
+   tr       {height:48px}
+   a:link   {text-decoration:none}
+</style>
+
+<script type="text/javascript">
+// Dateinamen in Array speichern
+var mem = new Array("arrow.gif", "bear.gif", "bin.gif",
+   "computer.gif", "dino01.gif", "dino02.gif", "earth.gif",
+   "entertai.gif", "gif.gif", "IntExpl.gif", "kermit.gif",
+   "key.gif", "marble.gif", "ms.gif", "paint.gif", "people.gif",
+   "redstar.gif", "walkgman.gif");
+
+// Nummer des aktuellen Spielers, 0 oder 1
+var spieler = 0;
+
+// Punkte der Spieler
+var punkte = new Array(0, 0);
+
+// Anzeige, welcher Spieler die Bilder gefunden hat
+var anzeige = new Array("dbrown.gif", "brown.gif");
+   
+// Nummer des ersten und des zweiten umgedrehten Bildes
+var erste, zweite;
+
+// Erstes oder zweites Bild?
+var erstesBild = true;
+
+// Während der Wartezeit kann nichts Anderes gemacht werden
+var warten = false;
+
+// Anzahl umgedrehter Paare, bei 18 ist Ende
+var anzahl = 0;              
+
+// Jedes Bild zweimal anordnen
+for(var i=0; i<2*4; i++)
+   mem[i+2*4] = mem[i];
+
+// Mischen
+for(var i=1; i<=500; i++)
+{
+   var p1 = parseInt(Math.random() * 4*4);
+   var p2 = parseInt(Math.random() * 4*4);
+   var temp = mem[p1];
+   mem[p1] = mem[p2];
+   mem[p2] = temp;
+}
+
+// Bild sichtbar machen
+function bilderSehen(e)
+{
+   if (warten) return;
+
+   // id der Quelle ermitteln
+   var id;
+   if(window.event) id = event.srcElement.id;  // IE
+   else             id = e.target.id;          // nicht IE
+   
+   // Dateinummer des Bildes aus der ID ermitteln
+   var dateinr = id.substr(2,2);
+
+   if (mem[dateinr] == "") return;
+
+   // Falls zweimal dasselbe Bild
+   if (dateinr == erste) return;
+
+   // Falls erstes Bild
+   if (erstesBild)
+   {
+      document.images[dateinr].src = mem[dateinr];
+      erste = dateinr;
+      erstesBild = false;
+   }
+
+   // Falls zweites Bild
+   else
+   {
+      document.images[dateinr].src = mem[dateinr];
+      document.images[erste].src = mem[erste];
+      zweite = dateinr;
+      erstesBild = true;
+      warten = true;
+
+      // Falls Paar gefunden
+      if (mem[erste] == mem[zweite])
+      {
+         mem[erste] = "";
+         mem[zweite] = "";
+         setTimeout(bilderEntfernen, 1000);
+      }
+
+      // Falls kein Paar gefunden
+      else
+         setTimeout(bilderUmdrehen, 2500);
+   }
+}
+
+// Bild wieder unsichtbar machen
+function bilderUmdrehen()
+{
+   document.images[erste].src = "darkred.gif";
+   document.images[zweite].src = "darkred.gif";
+   erste = "";
+
+   // Spielerwechsel
+   if (spieler==0)
+   {
+      document.images[4*4].src = "brown.gif";
+	  spieler = 1;
+   }
+   else
+   {
+      document.images[4*4].src = "dbrown.gif";
+      spieler = 0;
+   }   
+
+   warten = false;
+}
+
+// Bild entfernen, falls Paar gefunden
+function bilderEntfernen()
+{
+   // Anzeige, welcher Spieler die Bilder gefunden hat
+   document.images[erste].src = anzeige[spieler];
+   document.images[zweite].src = anzeige[spieler];
+   punkte[spieler]++;
+   warten = false;
+
+   // Spiel zu Ende?
+   anzahl++;
+   if (anzahl > 2*4-1)
+   {
+      var text;
+      if (punkte[0] > punkte[1])
+         text = "Spieler 1 hat mit " + punkte[0] + " zu "
+            + punkte[1] + " gewonnen.";
+      else if (punkte[1] > punkte[0])
+         text = "Spieler 2 hat mit " + punkte[1] + " zu "
+            + punkte[0] + " gewonnen.";
+      else
+         text = "Unentschieden.";
+
+      if (confirm(text + " Noch einmal ?"))
+         location.href = "memory.htm";
+   }
+}
+
+function regeln()
+{
+   if (warten) return;
+   alert("Klicken Sie zwei Bilder an. Die Bilder bleiben 2-3 Sekunden"
+      + " sichtbar.\nFalls Sie zwei gleiche Bilder gefunden haben,"
+      + " bekommen Sie zwei Punkte.\n");
+}
+
+</script>
+</head>
+<body >
+<script type="text/javascript">
+document.write("<table border='1' align='center'>");
+document.write("<tr><td colspan='6'><b>Memory<\/b> (für zwei Spieler)<\/td><\/tr>");
+
+for(var i=0; i<4; i++)
+{
+   document.write("<tr>");
+   for(var k=0; k<4; k++)
+      document.write("<td style='width:48px'>" + "<img id='id"
+         + (i*4+k) + "' src='darkred.gif' width='32'"
+         + " height='32' alt='Bild'><\/td>");
+   document.write("<\/tr>");
+}
+
+document.write("<tr> <td colspan='2'><input id='reg' type='button' value='Regeln'><\/td> <td colspan='3'>Spieler:<\/td> <td align='center'><img src='dbrown.gif'><\/td> <\/tr>");
+document.write("<\/table>");
+</script>
+
+<script type="text/javascript" src="eh.js"></script>
+<script type="text/javascript">
+for(var i=0; i<4*4; i++)
+   meinHandler("id" + i, "click", bilderSehen);
+meinHandler("reg", "click", regeln);
+</script>
+</body>
+</html>

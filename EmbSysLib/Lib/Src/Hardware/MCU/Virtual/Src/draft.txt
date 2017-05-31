@@ -1,0 +1,15 @@
+//---------------------------------------------------------------
+    const char *getIPbyString( void )
+    {
+      static char ret[20] ="";
+
+      if( !(getIP() == zeroAddr) )
+      {
+        sprintf(ret, "IP:  %d.%d.%d.%d\r\n",
+                    getIP().addr[0],
+                    getIP().addr[1],
+                    getIP().addr[2],
+                    getIP().addr[3] );
+      }
+      return( ret );
+    }

@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+<title>Ajax & JSON</title>
+
+<script type="text/javascript">
+function anfordern(z)
+{
+   req = new XMLHttpRequest();
+   req.open("get", "json_request.html?num3="+z, true);
+   req.overrideMimeType('text/plain'); 
+   req.onreadystatechange = auswerten;
+   req.send();
+}
+
+function auswerten(e)
+{
+   if(e.target.readyState == 4 && e.target.status == 200)
+   {
+      var antwort;
+      if(window.JSON)
+         antwort = JSON.parse(e.target.responseText);
+      else
+         antwort = eval("(" + e.target.responseText + ")");
+		 
+      document.getElementById("idAusgabe").firstChild.nodeValue =
+        "mon3: "  + antwort.messwert;
+		 
+	  document.getElementById("idMeter").value = antwort.messwert;
+   }
+}
+
+</script>
+</head>
+
+<body>
+<p><input id="idRange" type="range" min="0" max="100" step="1" value="$VAR(num3)"></p>
+<p><meter id="idMeter" min="0.0" max="1.0" value="0"></meter></p>
+<p id="idAusgabe">&nbsp;</p>
+    <p>
+      <a href="verweis.html">Index</a>
+    </p>
+
+<script type="text/javascript" src="eh.js"></script>
+<script type="text/javascript">
+  anfordern(document.getElementById("idRange").value);
+  meinHandler("idRange", "click", function() { anfordern(document.getElementById("idRange").value); });
+</script>
+
+</body>
+</html>
