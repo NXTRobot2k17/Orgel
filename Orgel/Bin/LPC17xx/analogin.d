@@ -6,16 +6,16 @@
 .\bin\lpc17xx\analogin.o: ..\EmbSysLib\Lib\Src\Hardware/MCU/MCU.h
 .\bin\lpc17xx\analogin.o: ..\EmbSysLib\Lib\Src\Hardware/MCU/System.h
 .\bin\lpc17xx\analogin.o: ..\EmbSysLib\Lib\Src\Std/Std.h
-.\bin\lpc17xx\analogin.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-.\bin\lpc17xx\analogin.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-.\bin\lpc17xx\analogin.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\bin\lpc17xx\analogin.o: C:\Hochschule\s4\embedded c++\OrgelProjekt\arm\ARM\ARMCC\Bin\..\include\stdlib.h
+.\bin\lpc17xx\analogin.o: C:\Hochschule\s4\embedded c++\OrgelProjekt\arm\ARM\ARMCC\Bin\..\include\string.h
+.\bin\lpc17xx\analogin.o: C:\Hochschule\s4\embedded c++\OrgelProjekt\arm\ARM\ARMCC\Bin\..\include\stdio.h
 .\bin\lpc17xx\analogin.o: ..\EmbSysLib\Lib\Src\Hardware/MCU/LPC17xx/MCU_LPC17xx.h
-.\bin\lpc17xx\analogin.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\inttypes.h
-.\bin\lpc17xx\analogin.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\bin\lpc17xx\analogin.o: C:\Hochschule\s4\embedded c++\OrgelProjekt\arm\ARM\ARMCC\Bin\..\include\inttypes.h
+.\bin\lpc17xx\analogin.o: C:\Hochschule\s4\embedded c++\OrgelProjekt\arm\ARM\ARMCC\Bin\..\include\stdint.h
 .\bin\lpc17xx\analogin.o: ..\EmbSysLib\Lib\Src\Hardware/MCU/LPC17xx/Sys/LPC17xx.H
-.\bin\lpc17xx\analogin.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm3.h
-.\bin\lpc17xx\analogin.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h
-.\bin\lpc17xx\analogin.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h
+.\bin\lpc17xx\analogin.o: C:\Hochschule\s4\embedded c++\OrgelProjekt\arm\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm3.h
+.\bin\lpc17xx\analogin.o: C:\Hochschule\s4\embedded c++\OrgelProjekt\arm\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h
+.\bin\lpc17xx\analogin.o: C:\Hochschule\s4\embedded c++\OrgelProjekt\arm\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h
 .\bin\lpc17xx\analogin.o: ..\EmbSysLib\Lib\Src\Hardware/MCU/LPC17xx/Sys/system_LPC17xx.h
 .\bin\lpc17xx\analogin.o: ..\EmbSysLib\Lib\Src\Hardware/MCU/LPC17xx/Sys/PinConfig.h
 .\bin\lpc17xx\analogin.o: ..\EmbSysLib\Lib\Src\Hardware/MCU/LPC17xx/Sys/RTOS_MCU.h

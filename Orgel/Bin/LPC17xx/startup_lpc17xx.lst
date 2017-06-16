@@ -424,11 +424,12 @@ ARM Macro Assembler    Page 7
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
 ork --depend=.\bin\lpc17xx\startup_lpc17xx.d -o.\bin\lpc17xx\startup_lpc17xx.o 
--I.\RTE\_Target_1 -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include -IC:\Keil
-_v5\ARM\PACK\Keil\LPC1700_DFP\2.3.0\Device\Include --predefine="__EVAL SETA 1" 
---predefine="__UVISION_VERSION SETA 523" --predefine="_RTE_ SETA 1" --predefine
-="LPC175x_6x SETA 1" --list=.\bin\lpc17xx\startup_lpc17xx.lst ..\EmbSysLib\Lib\
-Src\Hardware\MCU\LPC17xx\Sys\Keil\startup_LPC17xx.s
+-I.\RTE\_Target_1 -I"C:\Hochschule\s4\embedded c++\OrgelProjekt\arm\ARM\PACK\AR
+M\CMSIS\5.0.1\CMSIS\Include" -I"C:\Hochschule\s4\embedded c++\OrgelProjekt\arm\
+ARM\PACK\Keil\LPC1700_DFP\2.3.0\Device\Include" --predefine="__EVAL SETA 1" --p
+redefine="__UVISION_VERSION SETA 523" --predefine="_RTE_ SETA 1" --predefine="L
+PC175x_6x SETA 1" --list=.\bin\lpc17xx\startup_lpc17xx.lst ..\EmbSysLib\Lib\Src
+\Hardware\MCU\LPC17xx\Sys\Keil\startup_LPC17xx.s
 
 
 

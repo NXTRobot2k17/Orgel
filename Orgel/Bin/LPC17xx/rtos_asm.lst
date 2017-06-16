@@ -31,11 +31,12 @@ ARM Macro Assembler    Page 1
    23 00000020                 END
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
 ork --depend=.\bin\lpc17xx\rtos_asm.d -o.\bin\lpc17xx\rtos_asm.o -I.\RTE\_Targe
-t_1 -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include -IC:\Keil_v5\ARM\PACK\K
-eil\LPC1700_DFP\2.3.0\Device\Include --predefine="__EVAL SETA 1" --predefine="_
-_UVISION_VERSION SETA 523" --predefine="_RTE_ SETA 1" --predefine="LPC175x_6x S
-ETA 1" --list=.\bin\lpc17xx\rtos_asm.lst ..\EmbSysLib\Lib\Src\Hardware\MCU\LPC1
-7xx\Sys\Keil\RTOS_Asm.s
+t_1 -I"C:\Hochschule\s4\embedded c++\OrgelProjekt\arm\ARM\PACK\ARM\CMSIS\5.0.1\
+CMSIS\Include" -I"C:\Hochschule\s4\embedded c++\OrgelProjekt\arm\ARM\PACK\Keil\
+LPC1700_DFP\2.3.0\Device\Include" --predefine="__EVAL SETA 1" --predefine="__UV
+ISION_VERSION SETA 523" --predefine="_RTE_ SETA 1" --predefine="LPC175x_6x SETA
+ 1" --list=.\bin\lpc17xx\rtos_asm.lst ..\EmbSysLib\Lib\Src\Hardware\MCU\LPC17xx
+\Sys\Keil\RTOS_Asm.s
 
 
 
