@@ -469,6 +469,16 @@
               <FileType>5</FileType>
               <FilePath>.\Src\PWM.h</FilePath>
             </File>
+            <File>
+              <FileName>AsciiConverter.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Src\AsciiConverter.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>AsciiConverter.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Src\AsciiConverter.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

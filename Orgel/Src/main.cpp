@@ -2,9 +2,10 @@
 #include "lib.h"
 #include "Module/RTOS.h"
 #include "PWM.h"
-#include "AnalogOut.h" 
+#include "AnalogOut.h"
 #include "AnalogInADC.h"
 #include "AnalogOutDAC.h"
+#include "AsciiConverter.h"
 
 //*******************************************************************
 #if defined _MCU_TYPE_LPC17XX
@@ -104,13 +105,9 @@ int main(void)
   cTaskHandler::Timer taskTimer( taskHandler );
 
   disp.printf(0,0,0,__DATE__ " " __TIME__);
+  AsciiConverter converter;
+  int i = converter.convert('q');
 
-  AnalogInADC adcControl(2, adc,1,0);
-  AnalogOutDAC dacControl(0,1,0);
-  timerPWM.enablePWM(3);
-    PWM pwm(timer, 1000, led);
-    pwm.set(250);
-    pwm.enable();
   while(1)
   {
     switch( enc.get() )
@@ -121,16 +118,18 @@ int main(void)
         default:                                    break;
     }
 
-    dacControl = x;
+
     timerPWM.setPWM(x,3);
 
-    y  = (WORD)adcControl;
+
 
     if( taskTimer.timeout(10/*ms*/) )
     {
       disp.printf(1,0,20,"time:%.1f",rtos_task_Example.sec);
       disp.printf(2,0,20,"x:   %-6d",x);
       disp.printf(3,0,20,"y:   %-6d",y);
+      disp.printf(4,0,20,"i:   %-6d",i);
+
     }
   }
 }
