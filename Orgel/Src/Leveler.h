@@ -10,10 +10,11 @@ public:
 	~Leveler();
 private:
 	double volume;
+	double oldVolume;
 
 public:
 	void set(double volume);
-	WORD get(double sin);
+	double get(double sin);
 };
 
 #endif

@@ -8,7 +8,7 @@
 #include "AsciiConverter.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <conio.h>
+//#include <conio.h>
 
 //*******************************************************************
 #if defined _MCU_TYPE_LPC17XX
@@ -116,9 +116,10 @@ int main(void)
 
   while(1)
   {
-    if( _kbhit())
+		BYTE c;
+    if( uart.get( &c ) )//_kbhit())
     {
-        i = converter.convert(_getch());
+        i = converter.convert( c ); //_getch());
     }
     switch( enc.get() )
     {

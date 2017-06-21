@@ -3,21 +3,32 @@
 sinGenerator::sinGenerator()
 {
 	root = 1.0594631;
+	wait=0;
 }
 
 sinGenerator::~sinGenerator()
 {
 }
 
-void sinGenerator::set(int n)
+bool sinGenerator::set(int n)
 {
-	if(n==-100)
-		return;
+	if(wait<50000)
+	{
+		if(n==-100)
+		{
+			wait++;
+			return true;
+		}
+	}else{
+		return false;
+	}
+	wait=0;
 	if(n!=this->n)
 	{
 		w = 2*Pi*(440 * std::pow(root, n));
 	}
 	this->n=n;
+	return true;
 }
 
 double sinGenerator::get(double t)

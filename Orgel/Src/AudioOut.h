@@ -1,3 +1,6 @@
+#include "lib.h"
+#include <math.h>
+
 #include "stdint.h"
 
 #include "sinGenerator.h"
@@ -11,15 +14,17 @@
 class AudioOut
 {
 public:
-	AudioOut(double stepSize);
+	AudioOut(cTaskHandler handler);
 	~AudioOut();
 
 private:
 	int tone;
+	int preTone;
 	double volume;
 	double time;
 
 	double step;
+	double toneStep;
 	double stepSize;
 
 	sinGenerator sin;

@@ -1,9 +1,11 @@
 #include "AudioOut.h"
 
-AudioOut::AudioOut(double stepSize)
+AudioOut::AudioOut(cTaskHandler handler)
 {
-	this->stepSize=stepSize;
-	step=0;
+	stepSize=(double)handler.getCycleTime() * 0.000001;
+	step=0;	
+	toneStep=0;
+	preTone=0;
 }
 
 AudioOut::~AudioOut()
@@ -12,7 +14,15 @@ AudioOut::~AudioOut()
 
 void AudioOut::setTone(int tone)
 {
-	sin.set(tone);
+	if(tone!=preTone)
+	{
+		toneStep=0;
+		preTone=tone;
+	}
+	if(!sin.set(tone))
+		leveler.set(0);
+	else
+		leveler.set(-1);
 }
 
 void AudioOut::setVolume(double volume)
@@ -23,7 +33,8 @@ void AudioOut::setVolume(double volume)
 WORD AudioOut::getSound()
 {
 	step+=stepSize;
+	toneStep+=stepSize;
 	if(step>2*Pi)
 		step-=2*Pi;
-	return leveler.get(sin.get(step));
+	return (WORD) leveler.get(sin.get(step)*std::pow(0.85, toneStep));
 }

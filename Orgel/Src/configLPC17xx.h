@@ -59,10 +59,11 @@ cHwDAC_0    dac;
 //- Analog Input ----------------------------------------------------
 cHwADC_0    adc( &timer );
 
-//- Display ---------------------------------------------------------
-#if defined TERMINAL
   cHwUART_N            uart        ( cHwUART_N::UART_1, 
                                      cHwUART_N::BR_115200, 100, 100 );
+
+//- Display ---------------------------------------------------------
+#if defined TERMINAL
   cHwPort_Terminal     portTerm    ( uart, 0, &timer);
   cHwDisp_Terminal     dispHw      ( uart ); 
 #else 

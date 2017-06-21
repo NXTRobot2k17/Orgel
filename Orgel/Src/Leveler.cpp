@@ -10,10 +10,21 @@ Leveler::~Leveler()
 
 void Leveler::set(double volume)
 {
-	this->volume=volume;
+	if(volume==0)
+	{
+		oldVolume=volume;
+		volume=0;
+	}
+	else if(volume == -1)
+	{
+		volume=oldVolume;
+	}else
+	{
+		this->volume=volume;
+	}
 }
 
-WORD Leveler::get(double sin)
+double Leveler::get(double sin)
 {
-	return (WORD)(sin*volume);
+	return sin*volume;
 }

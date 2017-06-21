@@ -15,9 +15,10 @@ private:
 		double root;
 		int n;
 		double w;
+		int wait;
 
 public:
-		void set(int n);
+		bool set(int n);
 		double get(double t);
 };
 
