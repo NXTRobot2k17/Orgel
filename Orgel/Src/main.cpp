@@ -6,6 +6,9 @@
 #include "AnalogInADC.h"
 #include "AnalogOutDAC.h"
 #include "AsciiConverter.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
 
 //*******************************************************************
 #if defined _MCU_TYPE_LPC17XX
@@ -26,12 +29,14 @@ class cTask_Example : public cTaskHandler::Task
     cTask_Example(cTaskHandler &taskHandler)
     : Task(taskHandler)
     {
+
     }
 
   private:
     //---------------------------------------------------------------
     virtual void update(void)
     {
+
     }
 };
 
@@ -106,10 +111,15 @@ int main(void)
 
   disp.printf(0,0,0,__DATE__ " " __TIME__);
   AsciiConverter converter;
-  int i = converter.convert('q');
+  int i;
+
 
   while(1)
   {
+    if( _kbhit())
+    {
+        i = converter.convert(_getch());
+    }
     switch( enc.get() )
     {
         case cDevControlEncoder::LEFT:     x-=1000; break;

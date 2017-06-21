@@ -11,7 +11,7 @@ AsciiConverter::~AsciiConverter()
 }
 int AsciiConverter::convert(char c)
 {
-    int i = 0;
+    int i = -100;
     switch(c)
     {
         case 'z': i = 0;
