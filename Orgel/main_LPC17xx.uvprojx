@@ -475,6 +475,7 @@
               <FilePath>.\Src\PWM.h</FilePath>
             </File>
             <File>
+<<<<<<< HEAD
               <FileName>sinGenerator.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\sinGenerator.h</FilePath>
@@ -483,6 +484,16 @@
               <FileName>sinGenerator.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\sinGenerator.cpp</FilePath>
+=======
+              <FileName>AsciiConverter.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Src\AsciiConverter.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>AsciiConverter.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Src\AsciiConverter.h</FilePath>
+>>>>>>> ef671ec2f10b809bc0a32934be5636bf20de4036
             </File>
           </Files>
         </Group>

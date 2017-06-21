@@ -16,6 +16,7 @@
 					<Add option="-g" />
 					<Add option="-ffunction-sections" />
 					<Add option="-fdata-sections" />
+					<Add directory="Orgel/Src" />
 				</Compiler>
 				<Linker>
 					<Add option="-Wl,-gc-sections" />
@@ -32,6 +33,8 @@
 		</Linker>
 		<Unit filename="../EmbSysLib/Lib/Src/Module/RTOS.cpp" />
 		<Unit filename="../EmbSysLib/Lib/Src/lib.cpp" />
+		<Unit filename="Src/AsciiConverter.cpp" />
+		<Unit filename="Src/AsciiConverter.h" />
 		<Unit filename="Src/main.cpp" />
 		<Extensions>
 			<code_completion />

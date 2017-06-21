@@ -415,6 +415,7 @@
     </File>
     <File>
       <GroupNumber>1</GroupNumber>
+<<<<<<< HEAD
       <FileNumber>20</FileNumber>
       <FileType>5</FileType>
       <tvExp>0</tvExp>
@@ -422,11 +423,21 @@
       <bDave2>0</bDave2>
       <PathWithFileName>.\sinGenerator.h</PathWithFileName>
       <FilenameWithoutPath>sinGenerator.h</FilenameWithoutPath>
+=======
+      <FileNumber>19</FileNumber>
+      <FileType>8</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\Src\AsciiConverter.cpp</PathWithFileName>
+      <FilenameWithoutPath>AsciiConverter.cpp</FilenameWithoutPath>
+>>>>>>> ef671ec2f10b809bc0a32934be5636bf20de4036
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
     <File>
       <GroupNumber>1</GroupNumber>
+<<<<<<< HEAD
       <FileNumber>21</FileNumber>
       <FileType>8</FileType>
       <tvExp>0</tvExp>
@@ -434,6 +445,15 @@
       <bDave2>0</bDave2>
       <PathWithFileName>.\sinGenerator.cpp</PathWithFileName>
       <FilenameWithoutPath>sinGenerator.cpp</FilenameWithoutPath>
+=======
+      <FileNumber>20</FileNumber>
+      <FileType>5</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\Src\AsciiConverter.h</PathWithFileName>
+      <FilenameWithoutPath>AsciiConverter.h</FilenameWithoutPath>
+>>>>>>> ef671ec2f10b809bc0a32934be5636bf20de4036
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
