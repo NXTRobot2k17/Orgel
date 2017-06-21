@@ -465,24 +465,9 @@
               <FilePath>.\Src\PWM.cpp</FilePath>
             </File>
             <File>
-              <FileName>Leveler.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Leveler.h</FilePath>
-            </File>
-            <File>
               <FileName>PWM.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Src\PWM.h</FilePath>
-            </File>
-            <File>
-              <FileName>sinGenerator.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\sinGenerator.h</FilePath>
-            </File>
-            <File>
-              <FileName>sinGenerator.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\sinGenerator.cpp</FilePath>
             </File>
             <File>
               <FileName>AsciiConverter.cpp</FileName>
@@ -493,6 +478,36 @@
               <FileName>AsciiConverter.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Src\AsciiConverter.h</FilePath>
+            </File>
+            <File>
+              <FileName>AudioOut.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Src\AudioOut.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>AudioOut.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Src\AudioOut.h</FilePath>
+            </File>
+            <File>
+              <FileName>sinGenerator.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Src\sinGenerator.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>sinGenerator.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Src\sinGenerator.h</FilePath>
+            </File>
+            <File>
+              <FileName>Leveler.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Src\Leveler.h</FilePath>
+            </File>
+            <File>
+              <FileName>Leveler.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Src\Leveler.cpp</FilePath>
             </File>
           </Files>
         </Group>

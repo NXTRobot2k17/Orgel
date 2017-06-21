@@ -18,7 +18,7 @@ private:
 
 public:
 		void set(int n);
-		double get(double x);
+		double get(double t);
 };
 
 #endif //SINGENERATOR_H
