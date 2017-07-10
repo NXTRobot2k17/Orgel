@@ -10,7 +10,7 @@ sinGenerator::~sinGenerator()
 {
 }
 
-bool sinGenerator::set(int n)
+bool sinGenerator::set(int note)
 {
 	if(wait<50000)
 	{
@@ -23,15 +23,15 @@ bool sinGenerator::set(int n)
 		return false;
 	}
 	wait=0;
-	if(n!=this->n)
+	if(note!=n)
 	{
-		w = 2*Pi*(440 * std::pow(root, n));
+		w = (440 * std::pow(root, note));
 	}
-	this->n=n;
+	n=note;
 	return true;
 }
 
 double sinGenerator::get(double t)
 {	
-	return std::sin(w*t);
+	return std::sin(2*Pi*w*t);
 }

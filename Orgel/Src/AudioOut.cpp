@@ -2,7 +2,7 @@
 
 AudioOut::AudioOut(cTaskHandler handler)
 {
-	stepSize=(double)handler.getCycleTime() * 0.000001;
+	stepSize=(double)1/handler.getCycleTime();
 	step=0;	
 	toneStep=0;
 	preTone=0;
@@ -12,22 +12,20 @@ AudioOut::~AudioOut()
 {
 }
 
-void AudioOut::setTone(int tone)
+void AudioOut::setTone(int toneValue)
 {
-	if(tone!=preTone)
+	if(toneValue!=preTone)
 	{
 		toneStep=0;
-		preTone=tone;
+		preTone=toneValue;
+		sin.set(toneValue);
 	}
-	if(!sin.set(tone))
-		leveler.set(0);
-	else
-		leveler.set(-1);
 }
 
-void AudioOut::setVolume(double volume)
+void AudioOut::setVolume(WORD volume)
 {
-	leveler.set(volume);
+	if(toneStep<5)
+		leveler.set(volume);
 }
 
 WORD AudioOut::getSound()
@@ -36,5 +34,5 @@ WORD AudioOut::getSound()
 	toneStep+=stepSize;
 	if(step>2*Pi)
 		step-=2*Pi;
-	return (WORD) leveler.get(sin.get(step)*std::pow(0.85, toneStep));
+	return (WORD) leveler.get(sin.get(step)*std::pow(0.5, toneStep));
 }

@@ -18,7 +18,7 @@ private:
 		int wait;
 
 public:
-		bool set(int n);
+		bool set(int note);
 		double get(double t);
 };
 

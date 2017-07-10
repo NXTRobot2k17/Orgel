@@ -31,8 +31,8 @@ private:
 	Leveler leveler;
 
 public:
-	void setTone(int tone);
-	void setVolume(double volume);
+	void setTone(int toneValue);
+	void setVolume(WORD volume);
 	WORD getSound();
 };
 

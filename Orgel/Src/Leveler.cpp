@@ -8,20 +8,9 @@ Leveler::~Leveler()
 {
 }
 
-void Leveler::set(double volume)
+void Leveler::set(WORD volume)
 {
-	if(volume==0)
-	{
-		oldVolume=volume;
-		volume=0;
-	}
-	else if(volume == -1)
-	{
-		volume=oldVolume;
-	}else
-	{
-		this->volume=volume;
-	}
+	this->volume=volume;
 }
 
 double Leveler::get(double sin)

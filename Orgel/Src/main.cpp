@@ -6,6 +6,8 @@
 #include "AnalogInADC.h"
 #include "AnalogOutDAC.h"
 #include "AsciiConverter.h"
+#include "AudioOut.h"
+#include "AudioStream.h"
 #include <stdio.h>
 #include <stdlib.h>
 //#include <conio.h>
@@ -21,6 +23,15 @@
   #error "Device type not defined"
 #endif
 
+cTaskHandler  taskHandler(&timer);
+
+
+cTaskHandler::Timer taskTimer( taskHandler );
+AudioOut audioOut(taskHandler);
+AnalogOutDAC *dacAudio=new AnalogOutDAC(0,1,0);
+bool readyToWrite=false;
+WORD audioValue;
+
 //*******************************************************************
 class cTask_Example : public cTaskHandler::Task
 {
@@ -29,20 +40,18 @@ class cTask_Example : public cTaskHandler::Task
     cTask_Example(cTaskHandler &taskHandler)
     : Task(taskHandler)
     {
-
     }
 
   private:
     //---------------------------------------------------------------
     virtual void update(void)
     {
-
+			audioValue=audioOut.getSound();
+			dacAudio->Set(audioValue);
     }
 };
 
 //*******************************************************************
-cTaskHandler  taskHandler(&timer);
-
 cTask_Example task_Example(taskHandler);
 
 //*******************************************************************
@@ -103,44 +112,39 @@ cRtosTask_Example  rtos_task_Example( rtos );
 //*******************************************************************
 WORD x = 0;
 WORD y = 0;
+AsciiConverter converter;
+BYTE c;
+int i;
 
 //*******************************************************************
 int main(void)
 {
-  cTaskHandler::Timer taskTimer( taskHandler );
-
+	AnalogInADC volumePoti(2, adc,1,0);
+		
   disp.printf(0,0,0,__DATE__ " " __TIME__);
-  AsciiConverter converter;
-  int i;
-
-
-  while(1)
+  
+	while(1)
   {
-		BYTE c;
-    if( uart.get( &c ) )//_kbhit())
+    if( uart.get( &c ) ) //&& !readyToWrite)//_kbhit())
     {
-        i = converter.convert( c ); //_getch());
+				if(c>=0x30 && c<=0x7A)
+				{
+						i = converter.convert( (char)c ); //_getch());
+						uart.set(c);
+						if(i!=-100)
+							audioOut.setTone(i);
+				}
     }
-    switch( enc.get() )
-    {
-        case cDevControlEncoder::LEFT:     x-=1000; break;
-        case cDevControlEncoder::RIGHT:    x+=1000; break;
-        case cDevControlEncoder::CTRL_DWN: x =   0; break;
-        default:                                    break;
-    }
-
-
-    timerPWM.setPWM(x,3);
+		audioOut.setVolume(volumePoti.Get()/2);
+   
 
 
 
     if( taskTimer.timeout(10/*ms*/) )
     {
-      disp.printf(1,0,20,"time:%.1f",rtos_task_Example.sec);
-      disp.printf(2,0,20,"x:   %-6d",x);
-      disp.printf(3,0,20,"y:   %-6d",y);
-      disp.printf(4,0,20,"i:   %-6d",i);
-
+      disp.printf(3,0,20,"i:   %-6d",i);
+			disp.printf(4,0,20,"volume:   %-6d",volumePoti.Get()/2);
+			disp.printf(5,0,20,"value:   %-6d",taskHandler.getCycleTime());
     }
   }
 }
